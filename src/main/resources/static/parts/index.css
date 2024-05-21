@@ -1,0 +1,91 @@
+/*   #eaf2e3   */  /*白*/
+/*   #61e8e1   */  /*青*/
+/*   #f25757   */  /*赤*/
+/*   #f2e863   */  /*黄*/
+/*   #f2cd60   */  /*橙*/
+
+/* カレンダーの配置位置のみ*/
+.input_day{
+	margin-left: 100px;
+}
+/*/////////////////////////*/
+#add_input:hover {
+	background-color: #eaf2e3;
+	border-color: black;
+}
+#sub_input:hover {
+	background-color: #eaf2e3;
+	border-color: black;
+}
+
+#add_input,#sub_input{
+	width: 60px;
+	height: 40px;
+	font-size: 20px;
+	border-radius: 10px;
+    
+}
+
+.input_chang{
+    display: inline-block;
+    margin-left: 10px;
+}
+.top{
+    color: #61e8e1; 
+    font-size:40px ;
+}
+#input_select_day{   
+    font-size: 20px;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+/*/////////////////*/
+#input_itemname_id,#input_money_id,#input_category{
+	margin-left:10px;
+}
+/*////////////////*/
+/*---------------*/
+#m{
+    position: absolute;
+    top: 413px;
+    left: 18%; 
+    width: 28%;
+    height: 24.8%;
+/*   background-color: #61e8e1;*/
+}
+#mm{
+    position: absolute;
+    top: 110px;
+    left: 1%; /* フレームを所望の位置に移動するためにこの値を調整してください */
+    width: 15%; /* フレームの幅を調整してください */
+    height: 40%;
+}
+#mmm{
+    position: absolute;
+    top: 150px;
+    left: 50%; /* フレームを所望の位置に移動するためにこの値を調整してください */
+    width: 49.8%; /* フレームの幅を調整してください */
+    height: 56%;
+    border: none; /* 必要に応じてスタイルを設定してください */
+    background-color: #eaf2e3; 
+}
+
+
+
+.icon_change_id{
+    font-size: 12px;
+}
+.icon_selct1,.icon_selct2,.icon_selct3{
+    width:100px;
+    height:100px;
+}
+/* ------------------------------------------------------ */
+
+#add_inputsend {
+    background-color: transparent;
+    border: none;
+}
+#sendbutton{
+ 
+    background: transparent; /* ボタンの背景色を透明にする */
+}

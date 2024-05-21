@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<title>Money History</title>
+<meta charset="utf-8">
+<link rel="icon" type="image/x-icon" href="peg/icon.png">
+<link rel="stylesheet" type="text/css" href="parts/menu.css">
+<link rel="stylesheet" type="text/css" href="parts/index.css">
+<!--	    <link rel="stylesheet" type="text/css" href="parts/calendar.css">-->
+</head>
+
+<body>
+    <h1 class="top">
+        <img class="top" src="peg/icon.png" controls width="50px" height="50px">
+        <a class="top" href="/" style="text-decoration: none;"> Money History</a>
+    </h1>
+<!--menu-->
+    <div class="openbtn"><span></span><span></span><span></span></div>
+    <nav id="g-nav">
+        <div id="g-nav-list">
+            <ul>
+                <li><a href="/">HOME</a></li>
+                <li><a href="/Report">report</a></li>
+                <li><a href="">NO</a></li>
+                <li><a href="">NO</a></li>
+            </ul>
+        </div>
+    </nav>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="parts/menu.js"></script>
+    </div>
+<!--/////-->
+
+    <form th:action="@{Report}" method="get">
+        <button type="submit" id="add_input" name="keyword" value="収入">収入</button>
+        <button type="submit" id="sub_input" name="keyword" value="支出">支出</button>
+		<button>
+			<a href="/Report">解除</a>
+		</button>
+        </formth>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Day</th>
+                    <th>Itemname</th>
+                    <th>Money</th>
+                    <th>Category</th>
+                    <th>Porm</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="person:${num}">
+                    <td th:text="${person.day}">Day</td>
+                    <td th:text="${person.itemname}">Itemname</td>
+                    <td th:text="${person.money}">Money</td>
+                    <td th:text="${person.category}">Category</td>
+                    <td th:text="${person.porm}">Porm</td>
+                </tr>
+            </tbody>
+        </table>
+</body>
+
+</html>
