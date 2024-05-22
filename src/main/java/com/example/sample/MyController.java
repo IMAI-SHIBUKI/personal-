@@ -33,6 +33,7 @@ public class MyController {
 	public String Test(Model model) {
 		return "Test";
 	}
+	
 
 	//---------------
 	@GetMapping("/Test")
