@@ -1,19 +1,18 @@
 <!DOCTYPE html>
-
-<title>Money History</title>
-<meta charset="utf-8">
-<link rel="icon" type="image/x-icon" href="peg/icon.png">
-<link rel="stylesheet" type="text/css" href="parts/menu.css">
-<link rel="stylesheet" type="text/css" href="parts/index.css">
-<!--	    <link rel="stylesheet" type="text/css" href="parts/calendar.css">-->
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Money History</title>
+    <link rel="icon" type="image/x-icon" href="peg/icon.png">
+    <link rel="stylesheet" type="text/css" href="parts/menu.css">
+    <link rel="stylesheet" type="text/css" href="parts/index.css">
 </head>
-
 <body>
     <h1 class="top">
         <img class="top" src="peg/icon.png" controls width="50px" height="50px">
         <a class="top" href="/" style="text-decoration: none;"> Money History</a>
     </h1>
-<!--menu-->
+    <!--menu-->
     <div class="openbtn"><span></span><span></span><span></span></div>
     <nav id="g-nav">
         <div id="g-nav-list">
@@ -28,46 +27,41 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="parts/menu.js"></script>
-    </div>
-<!--/////-->
 
     <form th:action="@{Report}" method="get">
         <button type="submit" id="add_input" name="keyword" value="収入">収入</button>
         <button type="submit" id="sub_input" name="keyword" value="支出">支出</button>
-		<button>
-			<a href="/Report">解除</a>
-		</button>
-        </formth>
+        <button type="submit" formaction="/Report">解除</button>
+    </form>
 
-        <table>
-            <thead>
-                <tr>
-                    <th>年</th>
-					<th>月</th>
-					<th>日</th>
-                    <th>商品名</th>
-                    <th>金額</th>
-                    <th>カテゴリー</th>
-                    <th>収支</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr th:each="person:${num}">
-                    <td th:text="${person.yy}">年</td>
-					<td th:text="${person.mm}">月</td>
-					<td th:text="${person.dd}">日</td>
-                    <td th:text="${person.itemname}">商品名</td>
-                    <td th:text="${person.money}">金額</td>
-                    <td th:text="${person.category}">カテゴリー</td>
-                    <td th:text="${person.porm}">収支</td>
-					<td>
-						<form th:action="@{'/delete/'+${person.Id}}" method="post">
-							<button type="submit">削除</button>
-						</form>
-					</td>
-                </tr>
-            </tbody>
-        </table>
+    <table>
+        <thead>
+            <tr>
+                <th>年</th>
+                <th>月</th>
+                <th>日</th>
+                <th>商品名</th>
+                <th>金額</th>
+                <th>カテゴリー</th>
+                <th>収支</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="person : ${num}">
+                <td th:text="${person.yy}">年</td>
+                <td th:text="${person.mm}">月</td>
+                <td th:text="${person.dd}">日</td>
+                <td th:text="${person.itemname}">商品名</td>
+                <td th:text="${person.money}">金額</td>
+                <td th:text="${person.category}">カテゴリー</td>
+                <td th:text="${person.porm}">収支</td>
+                <td>
+                    <form th:action="@{'/delete/' + ${person.Id}}" method="post">
+                        <button type="submit">削除</button>
+                    </form>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </body>
-
 </html>
