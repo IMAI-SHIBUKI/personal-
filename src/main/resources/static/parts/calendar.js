@@ -4,6 +4,7 @@ const today = new Date();
 var showDate = new Date(today.getFullYear(), today.getMonth(), 1);
 var fristday = (today.getFullYear() + "年" + (today.getMonth() + 1) + "月" + today.getDate()+"日");
 var day_save = (today.getFullYear() + "/" + (today.getMonth() + 1) + "/" + today.getDate());
+
 // クリックした日付を保持する変数
 var selectedDateElement = null;
 var count =-1;
@@ -15,6 +16,17 @@ function selectDay(day) {
     var formattedDate = year + "年" + month + "月" + day + "日";
     day_save = year + "/" + month + "/" + day;
     document.getElementById('input_select_day').textContent = formattedDate;
+    
+//    var myday = document.getElementById('day_form');
+//	myday.value = day_save;
+    var myyy = document.getElementById('day_yy');
+	myyy.value = year;
+
+    var mymm = document.getElementById('day_mm');
+	mymm.value = month;
+
+    var mydd = document.getElementById('day_dd');
+	mydd.value = day;
     
     if(count ==0){
 		var elements = document.getElementsByClassName('today');

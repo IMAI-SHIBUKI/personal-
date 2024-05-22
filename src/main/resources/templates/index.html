@@ -1,141 +1,156 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
-    <title>Money History</title>
-    <meta charset="utf-8">
-    <link rel="icon" type="image/x-icon" href="peg/icon.png">
-    <link rel="stylesheet" type="text/css" href="parts/menu.css">
-    <link rel="stylesheet" type="text/css" href="parts/index.css">
-    <link rel="stylesheet" type="text/css" href="parts/calendar.css">
+	<title>Money History</title>
+	<meta charset="utf-8">
+	<link rel="icon" type="image/x-icon" href="peg/icon.png">
+	<link rel="stylesheet" type="text/css" href="parts/menu.css">
+	<link rel="stylesheet" type="text/css" href="parts/index.css">
+	<link rel="stylesheet" type="text/css" href="parts/calendar.css">
 </head>
+
 <body>
-    <div>
-        <h1 class="top">
-            <img class="top" src="peg/icon.png" controls width="50px" height="50px">
-            <a class="top" href="/" style="text-decoration: none;"> Money History</a>
-        </h1>
-        <!--//////////////////////////////////////////////menu-->
-        <div class="openbtn"><span></span><span></span><span></span></div>
-        <nav id="g-nav">
-            <div id="g-nav-list">
-                <ul>
-                    <li><a href="/">HOME</a></li>
-                    <li><a href="/Report">report</a></li>
-                    <li><a href="/Test">NO</a></li>
-                    <li><a href="">NO</a></li>
-                </ul>
-            </div>
-        </nav>
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-        <script src="parts/menu.js"></script>
-    </div>
+	<div>
+		<h1 class="top">
+			<img class="top" src="peg/icon.png" controls width="50px" height="50px">
+			<a class="top" href="/" style="text-decoration: none;"> Money History</a>
+		</h1>
+		<!--//////////////////////////////////////////////menu-->
+		<div class="openbtn"><span></span><span></span><span></span></div>
+		<nav id="g-nav">
+			<div id="g-nav-list">
+				<ul>
+					<li><a href="/">HOME</a></li>
+					<li><a href="/Report">report</a></li>
+					<li><a href=""></a></li>
+					<li><a href=""></a></li>
+				</ul>
+			</div>
+		</nav>
+		<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+			integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+		<script src="parts/menu.js"></script>
+	</div>
 
-    
 
-    <!--////////////////////////////////////////////////////////mm-->
-    <div id="mm">
-        <div class="input_chang">
-            <button id="add_input" class="input_chang" onclick='change_add()'>収入</button>
-            <button id="sub_input" class="input_chang" onclick='change_sub()'>支出</button>
-            <p id="aors_input" class="input_chang"></p>
-        </div>
 
-        <div>
-            <p id="input_select_day">yy/mm/dd</p>
-        </div>
+	<!--////////////////////////////////////////////////////////mm-->
+	<div id="mm">
+		<div class="input_chang">
+			<button id="add_input" class="input_chang" onclick='change_add()'>収入</button>
+			<button id="sub_input" class="input_chang" onclick='change_sub()'>支出</button>
+			<p id="aors_input" class="input_chang"></p>
+		</div>
 
-        <div>　商品名　
-            <input id="input_itemname_id" class="input_texti" type="text" name="input_itemname" placeholder="商品名" 　
-                onkeydown="move_inputmoney()">
-        </div>
+		<div>
+			<p id="input_select_day">yy/mm/dd</p>
+		</div>
+		<form th:action="@{/index}" method="post">
+			<div>　商品名　
+				<input id="input_itemname_id" class="input_texti" type="text" name="item" placeholder="商品名" 　
+					onkeydown="move_inputmoney()">
+			</div>
 
-        <div>　金　額　
-            <input id="input_money_id" class="input_textm" type="text" name="input_money" placeholder="金額"
-                onkeydown="move_inputselect()">
-        </div>
+			<div>　金　額　
+				<input id="input_money_id" class="input_textm" type="text" name="money" placeholder="金額"
+					onkeydown="move_inputselect()">
+			</div>
 
-        <div>　カテゴリ
-            <br>
-            <select id="input_category">
-                <option value="peg/icon/white.png">選択してください</option>
-                <option value="1">食費</option>
-                <option value="2">日用雑費</option>
-                <option value="3">外食費</option>
-                <option value="4">交際費</option>
-                <option value="5">家賃</option>
-                <option value="6">水道費</option>
-                <option value="7">光費</option>
-                <option value="8">熱費</option>
-                <option value="9">医療費</option>
-                <option value="10">通信費</option>
-                <option value="11">通勤費</option>
-                <option value="12">旅行費</option>
-                <option value="13">ガソリン代金</option>
-                <option value="14">衣服費</option>
-                <option value="15">お小遣い</option>
-                <option value="16">貯金</option>
-                <option value="17">その他</option>
-            </select>
-        </div>
+			<div>　カテゴリ
+				<br>
+				<select id="input_category" name="category">
+					<option value="peg/icon/white.png">選択してください</option>
+					<option value="1">食費</option>
+					<option value="2">日用雑費</option>
+					<option value="3">外食費</option>
+					<option value="4">交際費</option>
+					<option value="5">家賃</option>
+					<option value="6">水道費</option>
+					<option value="7">光費</option>
+					<option value="8">熱費</option>
+					<option value="9">医療費</option>
+					<option value="10">通信費</option>
+					<option value="11">通勤費</option>
+					<option value="12">旅行費</option>
+					<option value="13">ガソリン代金</option>
+					<option value="14">衣服費</option>
+					<option value="15">お小遣い</option>
+					<option value="16">貯金</option>
+					<option value="17">その他</option>
+				</select>
+			</div>
 
-        <div>
-            <img id="input_categorypeg" src="peg/icon/white.png" controls width="100px" height="100px"
-                onclick="category_change()">
-        </div>
-    </div>
+			<div>
+				<img id="input_categorypeg" src="peg/icon/white.png" controls width="100px" height="100px"
+					onclick="category_change()">
+			</div>
+			<div id="mmmm">
+				<input type="text" name="yy" id="day_yy">
+				<input type="text" name="mm" id="day_mm">
+				<input type="text" name="dd" id="day_dd">
+				
+				<input type="text" name="aors" id="aorsjs">
+			</div>
+			<!--/////////////////////////////////////////////////////////登録ボタン-->
+			<div id="m">
+				<input type="submit" value="Submit" class="photo-button" >
+			</div>
+			<!--//////////////////////////////////////////////////////////////////-->
+		</form>
+	</div>
 
-    <div id="mmm">
-        <div id="icon_selct_oy" controls width="100px" height="100px">
-            <div>
-                <img class="icon_selct1" src="peg/icon/Foodex.png" onclick="changethe_icon(1)">
-                <img class="icon_selct1" src="peg/icon/dailyitemex.png" onclick="changethe_icon(2)">
-                <img class="icon_selct1" src="peg/icon/eatingout.png" onclick="changethe_icon(3)">
-                <img class="icon_selct1" src="peg/icon/communicationex.png" onclick="changethe_icon(4)">
-                <img class="icon_selct1" src="peg/icon/homeex.png" onclick="changethe_icon(5)">
-                <img class="icon_selct1" src="peg/icon/waterbill.png" onclick="changethe_icon(6)">
-            </div>
-            <div>
-                <img class="icon_selct2" src="peg/icon/electbill.png" onclick="changethe_icon(7)">
-                <img class="icon_selct2" src="peg/icon/gasbill.png" onclick="changethe_icon(8)">
-                <img class="icon_selct2" src="peg/icon/mediicalfees.jpeg" onclick="changethe_icon(9)">
-                <img class="icon_selct2" src="peg/icon/telecommex.png" onclick="changethe_icon(10)">
-                <img class="icon_selct2" src="peg/icon/transportationex.png" onclick="changethe_icon(11)">
-                <img class="icon_selct2" src="peg/icon/travelex.png" onclick="changethe_icon(12)">
-            </div>
-            <div>
-                <img class="icon_selct3" src="peg/icon/fuelex.png" onclick="changethe_icon(13)">
-                <img class="icon_selct3" src="peg/icon/clothesm.png" onclick="changethe_icon(14)">
-                <img class="icon_selct3" src="peg/icon/pocketmoney.png" onclick="changethe_icon(15)">
-                <img class="icon_selct3" src="peg/icon.png" onclick="changethe_icon(16)">
-                <img class="icon_selct3" src="peg/icon/cube.jpg" onclick="changethe_icon(17)">
-            </div>
-        </div>
-    </div>
 
-    <div class="input_day">
-        <div class="input_day">
-            <div class="wrapper" id="input_calendar">
-                <div id="cha">
-                    <div id="next-prev-button">
-                        <button id="prev" onclick="prev()">‹</button>
-                        <button id="next" onclick="next()">›</button>
-                        <h1 id="header"></h1>
-                    </div>
-                <div id="calendar"></div>
-            </div>
-        </div>
-    </div>
-	
-	<!--/////////////////////////////////////////////////////////登録ボタン-->
-	    <div id="m">
-	        <button id="sendbutton" onclick="add_inputsend()">
-	            <img src="peg/Reg.png" controls width="335px" height="128.5px">
-	        </button>
-	    </div>
-	    <!--//////////////////////////////////////////////////////////////////-->
 
-    <script src="parts/index.js"></script>
-    <script src="parts/calendar.js"></script>
+	<div id="mmm">
+		<div id="icon_selct_oy" controls width="100px" height="100px">
+			<div>
+				<img class="icon_selct1" src="peg/icon/Foodex.png" onclick="changethe_icon(1)">
+				<img class="icon_selct1" src="peg/icon/dailyitemex.png" onclick="changethe_icon(2)">
+				<img class="icon_selct1" src="peg/icon/eatingout.png" onclick="changethe_icon(3)">
+				<img class="icon_selct1" src="peg/icon/communicationex.png" onclick="changethe_icon(4)">
+				<img class="icon_selct1" src="peg/icon/homeex.png" onclick="changethe_icon(5)">
+				<img class="icon_selct1" src="peg/icon/waterbill.png" onclick="changethe_icon(6)">
+			</div>
+			<div>
+				<img class="icon_selct2" src="peg/icon/electbill.png" onclick="changethe_icon(7)">
+				<img class="icon_selct2" src="peg/icon/gasbill.png" onclick="changethe_icon(8)">
+				<img class="icon_selct2" src="peg/icon/mediicalfees.jpeg" onclick="changethe_icon(9)">
+				<img class="icon_selct2" src="peg/icon/telecommex.png" onclick="changethe_icon(10)">
+				<img class="icon_selct2" src="peg/icon/transportationex.png" onclick="changethe_icon(11)">
+				<img class="icon_selct2" src="peg/icon/travelex.png" onclick="changethe_icon(12)">
+			</div>
+			<div>
+				<img class="icon_selct3" src="peg/icon/fuelex.png" onclick="changethe_icon(13)">
+				<img class="icon_selct3" src="peg/icon/clothesm.png" onclick="changethe_icon(14)">
+				<img class="icon_selct3" src="peg/icon/pocketmoney.png" onclick="changethe_icon(15)">
+				<img class="icon_selct3" src="peg/icon.png" onclick="changethe_icon(16)">
+				<img class="icon_selct3" src="peg/icon/cube.jpg" onclick="changethe_icon(17)">
+			</div>
+		</div>
+	</div>
+
+	<div class="input_day">
+		<div class="input_day">
+			<div class="wrapper" id="input_calendar">
+				<div id="cha">
+					<div id="next-prev-button">
+						<button id="prev" onclick="prev()">‹</button>
+						<button id="next" onclick="next()">›</button>
+						<h1 id="header"></h1>
+					</div>
+					<div id="calendar"></div>
+				</div>
+			</div>
+		</div>
+
+
+
+
+
+
+		<script src="parts/index.js"></script>
+		<script src="parts/calendar.js"></script>
 </body>
+
 </html>

@@ -47,18 +47,16 @@
 /*---------------*/
 #m{
     position: absolute;
-    top: 413px;
-    left: 18%; 
-    width: 28%;
-    height: 24.8%;
-/*   background-color: #61e8e1;*/
+    top: 305px;
+    left: 210px; 
 }
 #mm{
     position: absolute;
     top: 110px;
     left: 1%; /* フレームを所望の位置に移動するためにこの値を調整してください */
     width: 15%; /* フレームの幅を調整してください */
-    height: 40%;
+    height: 70%;
+/*    background-color:red;*/
 }
 #mmm{
     position: absolute;
@@ -69,7 +67,14 @@
     border: none; /* 必要に応じてスタイルを設定してください */
     background-color: #eaf2e3; 
 }
-
+#mmmm{
+	position: absolute;
+	top: 305px;
+	left: 250px; /* フレームを所望の位置に移動するためにこの値を調整してください */
+	width: 120%; /* フレームの幅を調整してください */
+	height: 50px;
+	background-color: #61e8e1;
+}
 
 
 .icon_change_id{
@@ -89,3 +94,15 @@
  
     background: transparent; /* ボタンの背景色を透明にする */
 }
+/*Submitの写真化*/
+.photo-button {
+    background-image: url('../peg/Reg.png'); /* ここに写真のパスを記述 */
+    background-size: cover; /* 写真をボタン全体に表示 */
+    background-position: center; /* 写真の中央を表示 */
+    width :360px;
+    height: 128.5px; /* ボタンの高さを設定 */  
+    color: transparent; /* ボタンのテキストを透明に */
+
+}
+
+

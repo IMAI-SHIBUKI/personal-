@@ -12,13 +12,37 @@ window.onload = function () {
     document.getElementById('input_select_day').textContent =fristday;
     document.getElementById('input_select_day').value =day_save;
     
+   
+   
+   
+   
+	var dateParts = day_save.split("/");
+	var yy = parseInt(dateParts[0]);
+
+	var mm = parseInt(dateParts[1]);
+	
+	var dd = parseInt(dateParts[2]);
+   
+   
+    var myyy = document.getElementById('day_yy');
+	myyy.value = yy;
+
+    var mymm = document.getElementById('day_mm');
+	mymm.value = mm;
+
+    var mydd = document.getElementById('day_dd');
+	mydd.value = dd;
+    
+
 
 };
 //収支切り替えボタン /////////////////////
 function change_add() {
     
     document.getElementById('aors_input').value = 1
-    	
+    var myInput = document.getElementById('aorsjs');
+	myInput.value = "収入";
+	
 	buttonA.style.backgroundColor = '#eaf2e3';
 	buttonA.style.border = '2px solid #f25757';
 	buttonS.style.backgroundColor = '#f2e863';
@@ -28,7 +52,9 @@ function change_add() {
 function change_sub() {
 
     document.getElementById('aors_input').value = -1
-
+	var myInput = document.getElementById('aorsjs');
+	myInput.value = "支出";
+	
 	buttonS.style.backgroundColor = '#eaf2e3';
 	buttonS.style.border = '2px solid #f25757';
 	buttonA.style.backgroundColor = '#f2e863';

@@ -15,14 +15,18 @@ public class Person {
 	@Id
 	@GeneratedValue
 	private int Id;
-	private String day;
+	private int yy;
+	private int mm;
+	private int dd;
 	private String itemname;
-	private int money; 
+	private String money; 
 	private String category;
 	private String porm;
 	
-	public Person(String day,String itemname, int money,String category,String porm) {
-		this.day = day;
+	public Person(int yy,int mm,int dd,String itemname, String money,String category,String porm) {
+		this.yy = yy;
+		this.mm = mm;
+		this.dd = dd;
 		this.itemname = itemname;
 		this.money = money;
 		this.category = category;
