@@ -17,6 +17,7 @@ public class MyController {
 	@Autowired
 	PersonRepository personrepository;
 	String [] ber = {"noname","食費","日用雑費","外食費","交際費","家賃","水道費","光費","熱費","医療費","通信費","通勤費","旅行費","ガソリン代金","衣服費","お小遣い","貯金","その他"};
+	
 	@GetMapping("/Report")
 	public String gethome(@RequestParam(value = "keyword", required = false) String keyword, Model model) {
 		List<Person> list;
